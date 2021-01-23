@@ -25,8 +25,7 @@ struct ValueTreePath {
 /**
  * todo: implement more sophisticated child update
  *       i.e. support re-ordering of children
- *       This function would become deprecated, as we don't need to assert
- *       children with the same index are the same type
+ *       This function would then only be used by load_tree_exact
  */
 void assert_tree_types_match(const ValueTreePath &target_tree, const ValueTreePath &source_tree) {
     const auto &target_type = target_tree.tree.getType();
@@ -34,7 +33,7 @@ void assert_tree_types_match(const ValueTreePath &target_tree, const ValueTreePa
 
     if (target_type != source_type)
         throw std::invalid_argument(
-                fmt::format("invalid load_tree arguments: mismatched types: {}: {}, {}: {}",
+                fmt::format("invalid load_tree arguments: mismatched types: {}:{}, {}:{}",
                             target_tree.path,
                             target_type.toString().toStdString(),
                             source_tree.path,
