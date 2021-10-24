@@ -121,7 +121,7 @@ void assert_load_tree_exact_compatible(const ValueTreePath &target_tree, const V
     if (target_prop_count != source_prop_count) {
         throw std::invalid_argument(
                 fmt::format(
-                        "invalid load_tree_exact arguments: property count mismatch: {} properties: {}, {} properties: {}",
+                        "invalid load_tree_exact arguments: property wait_count mismatch: {} properties: {}, {} properties: {}",
                         target_tree.path,
                         target_prop_count,
                         source_tree.path,
@@ -132,7 +132,7 @@ void assert_load_tree_exact_compatible(const ValueTreePath &target_tree, const V
     if (target_child_count != source_child_count)
         throw std::invalid_argument(
                 fmt::format(
-                        "invalid load_tree_exact arguments: children count mismatch: {} children: {}, {} children: {}",
+                        "invalid load_tree_exact arguments: children wait_count mismatch: {} children: {}, {} children: {}",
                         target_tree.path,
                         target_child_count,
                         source_tree.path,
