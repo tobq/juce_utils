@@ -41,7 +41,7 @@ class ByteArrayInputStream : public juce::MemoryInputStream {
     const ByteArray buffer_;
 
 public:
-    ByteArrayInputStream(ByteArray &&buffer) : buffer_(std::move(buffer)),
+    explicit ByteArrayInputStream(ByteArray &&buffer) : buffer_(std::move(buffer)),
                                              juce::MemoryInputStream(buffer.c_data(), buffer.size(), false) {
     }
 };
